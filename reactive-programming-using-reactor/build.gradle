@@ -6,6 +6,7 @@ plugins {
 
 group 'com.learnreaactiveprogramming'
 version '1.0-SNAPSHOT'
+sourceCompatibility = '18'
 
 repositories {
     mavenCentral()

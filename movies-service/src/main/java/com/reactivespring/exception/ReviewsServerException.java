@@ -1,10 +1,20 @@
 package com.reactivespring.exception;
 
-public class ReviewsServerException extends RuntimeException{
-    private String message;
+import lombok.Getter;
+import org.springframework.web.reactive.function.client.ClientResponse;
 
-    public ReviewsServerException(String message) {
-        super(message);
-        this.message = message;
-    }
+public class ReviewsServerException extends RuntimeException {
+
+  @Getter
+  private final ClientResponse clientResponse;
+
+  public ReviewsServerException(String message) {
+    super(message);
+    clientResponse = null;
+  }
+
+  public ReviewsServerException(ClientResponse clientResponse, String message) {
+    super(message);
+    this.clientResponse = clientResponse;
+  }
 }

@@ -1,0 +1,14 @@
+spring:
+  config:
+    activate:
+      on-profile: prod
+---
+
+spring:
+  data:
+    mongodb:
+      password: cmVhY3RpdmUtc3ByaW5nLXdlYmZsdXgtbW92aWVzcmV2aWV3
+      port: 27012
+      host: mongodb.udemy.svc.cluster.local
+      database: reactive-spring-webflux
+      username: reactive-spring-webflux-moviesreview

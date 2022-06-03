@@ -1,0 +1,12 @@
+spring:
+  config:
+    activate:
+      on-profile: prod
+---
+
+rest:
+  client:
+    base-urls:
+      movies-info: http://movies-info/v1/movieinfos
+      reviews: http://movies-reviews/v1/reviews
+---

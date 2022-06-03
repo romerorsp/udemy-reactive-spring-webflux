@@ -1,9 +1,14 @@
 package com.reactivespring.exception;
 
+import lombok.Getter;
+
 public class ReviewDataException extends RuntimeException {
-    private String message;
-    public ReviewDataException(String s) {
-        super(s);
-        this.message=s;
-    }
+
+  @Getter
+  private final ErrorMessage error;
+
+  public ReviewDataException(ErrorMessage error) {
+    super("Validation Error!");
+    this.error = error;
+  }
 }

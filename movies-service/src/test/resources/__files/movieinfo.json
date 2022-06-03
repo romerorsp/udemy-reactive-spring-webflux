@@ -1,10 +1,12 @@
 {
-  "movieInfoId": "1",
-  "name": "Batman Begins",
-  "year": 2005,
+  "id": "sul-piu-bello",
+  "name": "Sul Più Bello",
+  "year": 2020,
   "cast": [
-    "Christian Bale",
-    "Michael Cane"
+    "Ludovica Francesconi",
+    "Giuseppe Maggio",
+    "Gaja Masciale",
+    "Jozef Gjura"
   ],
-  "release_date": "2005-06-15"
+  "releaseDate": "2005-06-15"
 }

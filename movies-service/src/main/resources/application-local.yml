@@ -1,0 +1,16 @@
+server:
+  port: 8082
+---
+
+spring:
+  config:
+    activate:
+      on-profile: local
+---
+
+rest:
+  client:
+    base-urls:
+      movies-info: http://127.0.0.1:8080/v1/movieinfos
+      reviews: http://127.0.0.1:8081/v1/reviews
+---

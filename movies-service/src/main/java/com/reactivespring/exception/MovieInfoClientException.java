@@ -3,17 +3,17 @@ package com.reactivespring.exception;
 import lombok.Getter;
 import org.springframework.web.reactive.function.client.ClientResponse;
 
-public class ReviewsClientException extends RuntimeException {
+public class MovieInfoClientException extends RuntimeException {
 
   @Getter
   private final ClientResponse clientResponse;
 
-  public ReviewsClientException(String message) {
+  public MovieInfoClientException(String message) {
     super(message);
     clientResponse = null;
   }
 
-  public ReviewsClientException(ClientResponse clientResponse, String message) {
+  public MovieInfoClientException(ClientResponse clientResponse, String message) {
     super(message);
     this.clientResponse = clientResponse;
   }

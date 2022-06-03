@@ -1,17 +1,11 @@
 package com.reactivespring.domain;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.util.List;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class Movie {
+public record Movie(
+    MovieInfo info,
+    List<Review> reviews
+) {
 
-    private MovieInfo movieInfo;
-    private List<Review> reviewList;
 }

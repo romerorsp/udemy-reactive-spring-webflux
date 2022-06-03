@@ -1,30 +1,33 @@
 package com.reactivespring.domain;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.validation.annotation.Validated;
-
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
 import java.time.LocalDate;
 import java.util.List;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+import org.springframework.validation.annotation.Validated;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Validated
-public class MovieInfo {
-    private String movieInfoId;
-    @NotBlank(message = "movieInfo.name must be present")
-    private String name;
-    @NotNull
-    @Positive(message = "movieInfo.year must be a Positive Value")
-    private Integer year;
+public record MovieInfo(
+    String id,
 
-    @NotNull
-    private List<@NotBlank(message = "movieInfo.cast must be present") String> cast;
-    private LocalDate release_date;
+    @NotBlank(message = "info.name must be present")
+    String name,
+
+    @NotNull(message = "info.year should not be null")
+    @Min(value = 1800, message = "info.year must be a valid year above 1800")
+    @Max(value = 2200, message = "info.year can't be to far away in he future, max 2200.")
+    Integer year,
+
+    @NotNull(message = "info.cast must not be null")
+    @NotEmpty(message = "info.cast must not be empty")
+    List<String> cast,
+
+    LocalDate releaseDate
+) {
+
 }

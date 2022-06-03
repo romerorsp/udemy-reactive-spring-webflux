@@ -1,0 +1,18 @@
+server:
+  port: 8081
+---
+
+spring:
+  config:
+    activate:
+      on-profile: local
+---
+
+spring:
+  data:
+    mongodb:
+      password: cmVhY3RpdmUtc3ByaW5nLXdlYmZsdXgtbW92aWVzcmV2aWV3
+      port: 27072
+      host: 127.0.0.1
+      database: reactive-spring-webflux
+      username: reactive-spring-webflux-moviesreview

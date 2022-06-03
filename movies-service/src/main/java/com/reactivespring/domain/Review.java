@@ -1,17 +1,23 @@
 package com.reactivespring.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import org.springframework.validation.annotation.Validated;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class Review {
+@Validated
+public record Review(
+    String id,
 
-    private String reviewId;
-    private Long movieInfoId;
-    private String comment;
-    //@Min(value = 0L, message = "rating.negative : rating is negative and please pass a non-negative value")
-    private Double rating;
+    @NotEmpty(message = "review.movieInfoId must not be empty.")
+    String movieInfoId,
+
+    @NotEmpty(message = "review.comment must not be empty.")
+    String comment,
+
+    @Min(value = 0L, message = "review.rating must be a value between 0 and 10")
+    @Max(value = 10L, message = "review.rating must be a value between 0 and 10")
+    Double rating
+) {
+
 }
